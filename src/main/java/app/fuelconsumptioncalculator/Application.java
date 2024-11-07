@@ -1,18 +1,21 @@
 package app.fuelconsumptioncalculator;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+import java.util.ResourceBundle;
 
-public class HelloApplication extends Application {
+public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        // Load the resource bundle (assuming you have a properties file 'messages.properties')
+        ResourceBundle bundle = ResourceBundle.getBundle("messages");
+
+        // Load the FXML file and pass the bundle
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("View.fxml"), bundle);
+        Scene scene = new Scene(fxmlLoader.load(), 320, 500);
+        stage.setTitle("Aliisa Rokala!");
         stage.setScene(scene);
         stage.show();
     }
